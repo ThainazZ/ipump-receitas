@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Thainá!</Text>
+      <Text>Thainá</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +13,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#E7DFC6',
     alignItems: 'center',
     justifyContent: 'center',
   },
 });
+
+
