@@ -1,22 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import Servicos from './src/telas/Servicos';
+import { Text } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Thainá</Text>
-      <StatusBar style="auto" />
-    </View>
+  
+    <Servicos></Servicos>
+    
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#E7DFC6',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
 
