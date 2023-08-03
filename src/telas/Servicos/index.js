@@ -3,32 +3,22 @@ import { SafeAreaView, FlatList} from "react-native";
 import Item from "./Item";
 import { StatusBar } from "react-native";
 
-const servicos = [
+const receitasPrincipais = [
     {
       id:1,
-      nome: "Banho",
-      preco: 79.90,
-      descricao: "NÃO DÊ BANHO NO SEU GATO!"
-    },
-    {
-      id:2,
-      nome: "Vacina",
-      preco: 99.90,
-      descricao: "Importada e com a melhor qualidade para o seu gato."
-    },
-    {
-      id:3,
-      nome: "Castração",
-      preco: 49.90,
-      descricao: "Diga não a gravidez na adolescência."
+      nome: "Smoothie Proteico",
+      descricao: "Rápido, gostoso e com 32g de proteína.",
+      comando: "Você vai precisar de:",
+      instrucoes: "banana, leite, whey protein e gelo;"
+
     }
   ]
 
-  export default function Servicos() {
+  export default function Receitas() {
     return <SafeAreaView>
       <StatusBar />
       <FlatList
-        data={servicos}
+        data={receitasPrincipais}
         renderItem={({item}) => <Item {...item}  />}
         keyExtractor={({id}) => String(id)}
       />

@@ -8,15 +8,22 @@ export default StyleSheet.create({
     
     nome: {
         color: '#FFFFF',
+        fontSize: 20,
+        paddingBottom: '2%'
+        
+    },
+    descricao: {
         fontSize: 16,
+
     },
-    calculo: {
-        fontSize: 14,
-        marginVertical: 8,
-    },
-    preco: {
+    comando: {
         fontSize: 16,
         fontWeight: 'bold',
-        textAlign: 'right',
+        textAlign: 'left',
+    },
+    instrucoes: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        textAlign: 'left',
     },
 })
