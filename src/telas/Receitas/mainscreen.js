@@ -1,74 +1,137 @@
+import { CurrentRenderContext } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 // Import components and functions for database operations
 
-const MainScreen = ({ username }) => {
+const MainScreen = ({ route }) => {
+  const { username } = route.params;
   const [firstName, setFirstName] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [randomRecipe, setRandomRecipe] = useState(null);
   const [mostWellRatedRecipe, setMostWellRatedRecipe] = useState(null);
 
   useEffect(() => {
-    // Extract the user's first name from the username
     const nameArray = username.split(" ");
     setFirstName(nameArray[0]);
-
-    // Fetch the most well-rated recipe and set it to mostWellRatedRecipe state
-    // Fetching random recipes will depend on your database structure and implementation.
   }, [username]);
 
-  const handleSearch = () => {
-    // Implement the logic to search the database based on the searchQuery
-    // Set the search results to a state and display them accordingly
-  };
+  const handleSearch = () => {};
 
-  const handleRandomizeRecipe = () => {
-    // Implement the logic to fetch a random recipe from the database
-    // and set it to randomRecipe state
-  };
+  const handleRandomizeRecipe = () => {};
 
-  const handleAddRecipe = () => {
-    // Implement navigation to the screen where the user can add a new recipe
-  };
+  const handleAddRecipe = () => {};
 
-  const handleGoToRecipe = (recipeId) => {
-    // Implement navigation to the recipe page with the selected recipeId
-  };
+  const handleGoToRecipe = (recipeId) => {};
 
   return (
+    <>
     <View style={styles.container}>
-      {/* Salutation and Subtitle */}
-      <Text style={styles.salutation}>Olá, {firstName}!</Text>
-      <Text style={styles.subtitle}>O que você está afim de cozinhar hoje?</Text>
+      <Text style={styles.salutation}>Olá, {username}!</Text>
+      <Text style={styles.subtitle}>
+        O que você está afim de cozinhar hoje?
+      </Text>
+      </View>
 
-      {/* Search Input */}
+      <View style={styles.containerSearch}>
       <TextInput
         style={styles.searchInput}
         placeholder="Buscar receitas"
-        placeholderTextColor="gray"
         value={searchQuery}
         onChangeText={setSearchQuery}
         onSubmitEditing={handleSearch}
       />
-
-      {/* Randomize and Add Recipe Buttons */}
+      </View>
+      
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.randomizeButton} onPress={handleRandomizeRecipe}>
+        <TouchableOpacity
+          style={styles.randomizeButton}
+          onPress={handleRandomizeRecipe}
+        >
           <Text style={styles.buttonText}>Aleatorizar receita</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.addButton} onPress={handleAddRecipe}>
-          <Text style={styles.buttonText}>Adicionar receita</Text>
+        <TouchableOpacity  onPress={handleAddRecipe}>
+          <Text style={styles.addButton}>+</Text>
         </TouchableOpacity>
       </View>
-
-      {/* Most Well Classified Recipe Container */}
-      {/* Display the recipe details in this container */}
-    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  // Styles for the components go here
+  container: {
+    marginLeft: 50,
+  },
+
+  salutation: {
+    textAlign: "left",
+    marginTop: 32,
+    color: "#000000",
+    fontSize: 32,
+  },
+
+  subtitle: {
+    textAlign: "left",
+    fontSize: 16,
+    
+  },
+
+  containerSearch: {
+
+    display: 'flex',
+    alignItems: "center",
+
+  },
+
+
+  searchInput: {
+    marginTop: 16,
+    width: 292,
+    height: 48,
+    display: "flex",
+    alignItems: 'center',
+    textAlign: "center",
+    justifyContent:'center',
+    borderWidth: 1,
+    borderRadius: 5
+
+  },
+
+  buttonContainer: {
+    display: 'flex',
+    flexDirection:'row',
+    justifyContent:'center',
+    marginTop: 16
+  },
+
+  addButton: {
+    width: 69,
+    height:46,
+    paddingVertical:8,
+    marginLeft: 16,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "black",
+    textAlign: "center",
+    fontSize: 20,
+  },
+
+  buttonText: {
+    width: 207,
+    height: 46,
+    fontSize: 16,
+    paddingVertical:10,
+    alignItems:'center',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "black",
+    textAlign: "center",
+  },
 });
 
 export default MainScreen;
